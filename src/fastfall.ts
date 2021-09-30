@@ -33,7 +33,7 @@ export default function fastfall(context: Function[] | null, template?: Function
         queue.release(holder);
     }
 
-    function compiled() {
+    function compiled(...argmts: any) {
         const current = queue.get();
         current.release = release;
 
@@ -41,32 +41,32 @@ export default function fastfall(context: Function[] | null, template?: Function
 
         let args;
         let i;
-        let len = arguments.length - 1;
+        let len = argmts.length - 1;
 
         current.context = context;
-        current.callback = arguments[len] || noop;
+        current.callback = argmts[len] || noop;
 
         switch (len) {
             case 0:
                 current.work();
                 break;
             case 1:
-                current.work(null, arguments[0]);
+                current.work(null, argmts[0]);
                 break;
             case 2:
-                current.work(null, arguments[0], arguments[1]);
+                current.work(null, argmts[0], argmts[1]);
                 break;
             case 3:
-                current.work(null, arguments[0], arguments[1], arguments[2]);
+                current.work(null, argmts[0], argmts[1], argmts[2]);
                 break;
             case 4:
-                current.work(null, arguments[0], arguments[1], arguments[2], arguments[3]);
+                current.work(null, argmts[0], argmts[1], argmts[2], argmts[3]);
                 break;
             default:
                 args = new Array(len + 1);
                 args[0] = null;
                 for (i = 0; i < len; i++) {
-                    args[i + 1] = arguments[i];
+                    args[i + 1] = argmts[i];
                 }
                 current.work.apply(null, args);
         }
