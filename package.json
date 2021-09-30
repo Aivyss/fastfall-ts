@@ -1,6 +1,6 @@
 {
     "name": "fastfall-ts",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "homepage": "https://github.com/Aivyss/fastfall-ts",
     "files": [
         "dist",
