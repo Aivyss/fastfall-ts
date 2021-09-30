@@ -2,7 +2,7 @@ import reusify from 'reusify-ts';
 
 let empty: IArguments;
 
-export default function fastfall(context: Function[] | null, template: Function[]) {
+export default function fastfall(context: Function[] | null, template?: Function[]) {
     if (Array.isArray(context)) {
         template = context;
         context = null;
@@ -33,7 +33,7 @@ export default function fastfall(context: Function[] | null, template: Function[
         queue.release(holder);
     }
 
-    function compiled(this: any) {
+    function compiled() {
         const current = queue.get();
         current.release = release;
 
@@ -43,7 +43,7 @@ export default function fastfall(context: Function[] | null, template: Function[
         let i;
         let len = arguments.length - 1;
 
-        current.context = this || context;
+        current.context = context;
         current.callback = arguments[len] || noop;
 
         switch (len) {

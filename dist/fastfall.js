@@ -37,7 +37,7 @@ function fastfall(context, template) {
         var args;
         var i;
         var len = arguments.length - 1;
-        current.context = this || context;
+        current.context = context;
         current.callback = arguments[len] || noop;
         switch (len) {
             case 0:
