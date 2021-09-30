@@ -1,0 +1,28 @@
+{
+    "name": "fastfall-ts",
+    "version": "0.0.2",
+    "homepage": "https://github.com/Aivyss/fastfall-ts",
+    "files": [
+        "dist",
+        "src"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Aivyss/fastfall-ts.git"
+    },
+    "bugs": {
+        "url": "https://github.com/Aivyss/fastfall-ts/issues",
+        "email": "hklee6417@gmail.com"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "Aivyss",
+        "email": "hklee6417@gmail.com",
+        "url": "https://github.com/Aivyss"
+    },
+    "main": "dist/fastfall.js",
+    "dependencies": {
+        "reusify-ts": "^0.0.1"
+    },
+    "devDependencies": {}
+}
